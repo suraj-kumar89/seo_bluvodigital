@@ -1,0 +1,148 @@
+@import "tailwindcss";
+/* index.css */
+
+/* Base */
+/* Global font stack */
+:root {
+  --font-sans: "Geist", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Apply globally */
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;   /* variable font smart sizing */
+  font-weight: 400;            /* default weight */
+  font-style: normal;
+  background: #131313;   /* site background */
+  color: white;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* The fixed background layer that spans the viewport and ignores pointer events */
+.bg-blobs-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;           /* behind your app content */
+  pointer-events: none; /* don't block clicks/scrolls */
+}
+
+/* Blob nodes */
+.bg-blob {
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  background: rgba(77, 158, 255, 0.2); /* #4D9EFF @ 20% */
+}
+
+/* Starting positions + animations */
+.bg-blob--1 {
+  top: 10%;
+  left: 5%;
+  animation: moveBlob1 30s infinite alternate linear;
+}
+.bg-blob--2 {
+  bottom: 5%;
+  right: 10%;
+  animation: moveBlob2 35s infinite alternate ease-in-out;
+}
+.nanum-pen-script-regular {
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-primary-default, #4D9EFF4D);
+  text-align: center;
+  font-size: var(--Font-Heading-H6-text-size, 20px);
+  line-height: var(--Font-Copy-body-lg-line-height, 28px); /* 140% */
+}
+
+/* Keyframes */
+@keyframes moveBlob1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(650px, -400px) scale(1.15); }
+  66%  { transform: translate(-500px, 300px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes moveBlob2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(-700px, -550px) scale(1.3); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob--1, .bg-blob--2 { animation: none !important; }
+}
+
+@keyframes floatA {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(32px, -24px); }
+  100% { transform: translate(-24px, 28px); }
+}
+
+@keyframes floatB {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-28px, 22px); }
+  100% { transform: translate(26px, -26px); }
+}
+
+/* Respect user’s reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  [style*="animation:"] { animation: none !important; }
+}
+
+
+
+/* From Uiverse.io by gharsh11032000 */ 
+.button {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: #000000;
+  border-radius: 34px;
+  background-color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: #FFEA4D;
+  transition: all 0.9s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #212121;
+  background-color: #3385E6;
+  scale: 1.1;
+}
+
+.button:active {
+  scale: 1;
+}
+
+
