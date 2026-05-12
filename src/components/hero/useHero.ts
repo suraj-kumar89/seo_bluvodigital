@@ -18,7 +18,7 @@ export function useHero({ onSubmit }: { onSubmit?: (p: Record<string, string>) =
     { src: "/assets/ComfyTails.png", alt: "Comfy Tails" },
     { src: "/assets/BienLeaf.png", alt: "beinleaf" },
     { src: "/assets/Brazenborn.png", alt: "Brazen" },
-    { src: "/assets/logo.png", alt: "Farida Gupta" },
+    // { src: "/assets/logo.png", alt: "Farida Gupta" },
     { src: "/assets/Deployed.png", alt: "Deployed" },
     { src: "/assets/hangookd.png", alt: "Hangookd" },
     { src: "/assets/SleepNovaa.png", alt: "Sleepnova" },

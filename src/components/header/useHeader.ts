@@ -20,14 +20,14 @@ export function useHeader(overrides?: NavItem[]) {
     [overrides]
   );
 
-  // Basic active checker. If you’re using React Router / Next.js,
-  // swap this to their respective router pathname.
-  const isActive = (href: string) => {
-    if (typeof window === "undefined") return false;
-    const current = window.location?.pathname || "/";
+  // Basic active = window.location?.pathname || "/";
     // active if exact match or current starts with href (useful for sections)
     return href !== "/" ? current.startsWith(href) : current === "/";
   };
 
   return { navItems, isActive };
-}
+} checker. If you’re using React Router / Next.js,
+  // swap this to their respective router pathname.
+  const isActive = (href: string) => {
+    if (typeof window === "undefined") return false;
+    const current
